@@ -30,7 +30,7 @@ class Codec {
     }
     encodeChecked(buffer) {
         const check = this.sha256(this.sha256(buffer)).slice(0, 4);
-        return this.encodeRaw(concatArgs(buffer, check));
+        return this.encodeRaw(Buffer.from(concatArgs(buffer, check)));
     }
     encodeRaw(bytes) {
         return this.codec.encode(bytes);
